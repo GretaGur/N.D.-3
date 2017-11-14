@@ -1,0 +1,57 @@
+body {
+    margin:0;
+}
+
+img {
+    width:100%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 18px;
+    margin-left: 10px;
+}
+th, td {
+    text-align: left;
+    padding: 5px;
+    border-left: 1px solid #ddd;
+}
+th {
+    cursor: pointer;
+    background-color: #eee;
+}
+tr {
+    border-bottom: 1px solid #ddd;
+}
+#open-new-row-form {
+    width: 30px;
+    height: 30px;
+    margin: 15px;
+}
+#open-new-row-form img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+#new-row-form {
+    margin: 20px 0;
+}
+#new-row-form input {
+    padding: 5px;
+    display: block;
+    margin: 5px;
+}
+#new-row-form #submit {
+    display: block;
+    margin: 5px;
+    padding: 10px;
+    background-color: #eee;
+    width: 163px;
+    text-align: center;
+    cursor: pointer;
+}
+#new-row-form input[name='id'] {
+    display: none;
+}
