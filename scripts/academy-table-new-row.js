@@ -19,9 +19,12 @@ class TableNewRow {
             )
         });
         $(this.id).append($('<div></div>')
-        .attr({ id: "submit" })
-        .text("Submit")
-    );
+            .attr({ id: "submit" })
+            .text("Submit")
+        );
+        $(this.id).append($('<div></div>')
+            .attr({ id: "message" })
+        );
     }
 
     createNewRow(lastId) {
@@ -30,6 +33,7 @@ class TableNewRow {
         let notEmptyValues = this.validateForm(newRowObject);
         if (notEmptyValues) {
             this.resetFormInputsValue();
+            this.showSuccesMessage();
             return newRowObject;
         } else {
             return false;
@@ -50,10 +54,12 @@ class TableNewRow {
     }
 
     validateForm(newRowObject) {
+        this.clearMessage();
         let isNotEmptyNames = true;
         $.each(newRowObject, (key, value) => {
             if (!value) {
                 isNotEmptyNames = false;
+                this.showErrorMessage(key);
             }
         });
         return isNotEmptyNames;
@@ -61,5 +67,17 @@ class TableNewRow {
 
     resetFormInputsValue() {
         $(`${this.id} input`).val('');
+    }
+
+    clearMessage() {
+        $("#message").text('');
+    }
+
+    showErrorMessage(key) {
+        $("#message").append(`${key} input is empty <br>`).css('color', 'red');
+    }
+
+    showSuccesMessage() {
+        $("#message").text(`Row is added`).css('color', 'green');
     }
 }
