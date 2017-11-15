@@ -33,7 +33,7 @@ class TableNewRow {
         let notEmptyValues = this.validateForm(newRowObject);
         if (notEmptyValues) {
             this.resetFormInputsValue();
-            this.showSuccesMessage();
+            this.showSuccessMessage();
             return newRowObject;
         } else {
             return false;
@@ -71,13 +71,15 @@ class TableNewRow {
 
     clearMessage() {
         $("#message").text('');
+        $(`input`).css('border-color', 'initial');
     }
 
     showErrorMessage(key) {
-        $("#message").append(`${key} input is empty <br>`).css('color', 'red');
+        // $("#message").append(`${key} input is empty <br>`).css('color', 'red');
+        $(`input[name=${key}]`).css('border-color', 'red');
     }
 
-    showSuccesMessage() {
+    showSuccessMessage() {
         $("#message").text(`Row is added`).css('color', 'green');
     }
 }
